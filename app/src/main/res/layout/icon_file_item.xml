@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_img"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" >
+
+        <ImageView
+            android:id="@+id/iv_app_icon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:contentDescription="@null"
+            />
+
+        <Button
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/eyu_icon_notice"
+            android:text="1" 
+            android:id="@+id/btn_notice"
+            android:focusable="false"
+            android:clickable="false"
+            android:textSize="10sp"
+            android:visibility="gone"
+            android:textColor="#ffffff"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_img"
+        android:layout_marginTop="7dp"
+        android:contentDescription="@null"
+        android:ellipsize="end"
+        android:gravity="center_horizontal|center_vertical"
+        android:singleLine="true"
+        android:textColor="#ffffff"
+        android:textSize="11sp" />
+
+</RelativeLayout>

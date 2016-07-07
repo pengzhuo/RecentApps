@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btn_spot"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="13dp"
+        android:text="INMOBISPOT"
+        android:textColor="#666666"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_top"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="13dp"
+        android:text="INMOBITopApp"
+        android:textColor="#666666"
+        android:textSize="20sp" />
+    
+    <Button
+        android:id="@+id/btn_admob"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="13dp"
+        android:text="ADMOB_SPOT"
+        android:textColor="#666666"
+        android:textSize="20sp" />
+    
+    <Button
+        android:id="@+id/btn_airpush"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="13dp"
+        android:text="AIRPUSH"
+        android:textColor="#666666"
+        android:textSize="20sp" />
+    
+    <Button
+        android:id="@+id/btn_window_banner"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="13dp"
+        android:text="WINDOW_BANNER"
+        android:textColor="#666666"
+        android:textSize="20sp" />
+    
+    <Button
+        android:id="@+id/btn_window_spot"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="13dp"
+        android:text="WINDOW_SPOT"
+        android:textColor="#666666"
+        android:textSize="20sp" />
+    
+
+</LinearLayout>
