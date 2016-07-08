@@ -4,21 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.emob.lib.log.EmobLog;
-import com.emob.lib.stats.FlurryUtil;
-import com.emob.lib.stats.StatsDefines;
-import com.emob.lib.stats.StatsDefines;
 import com.emob.lib.stats.StatsUtil;
-import com.emob.lib.stats.UmengUtils;
 import com.emob.lib.util.Utils;
 import com.emob.luck.ImageMemoryCache;
-import com.emob.luck.TopSpotNativeHelper;
 import com.emob.luck.common.CommonDefine;
 import com.emob.luck.db.AdTableDBHelper;
-import com.emob.luck.db.EventTableDBHelper;
 import com.emob.luck.model.AdItem;
 import com.emob.luck.model.EventItem;
 import com.duduws.recent.R;
-import com.inmobi.commons.InMobi;
 
 import android.app.Activity;
 import android.content.Context;
@@ -85,7 +78,6 @@ public class TintActivity extends Activity implements OnClickListener{
 	@Override
 	protected void onStart() {
 		super.onStart();
-		FlurryUtil.onStart(this, StatsDefines.APP_KEY_FLURRY);
 	};
 	
 	@Override
@@ -102,7 +94,6 @@ public class TintActivity extends Activity implements OnClickListener{
 	
 	@Override
 	protected void onStop() {
-		FlurryUtil.onStop(this);
 		super.onStop();
 	}
 	
@@ -132,10 +123,7 @@ public class TintActivity extends Activity implements OnClickListener{
 //		StatsUtil.onEvent(mContext, StatsDefines.TOP_SPOT_INMOBI, map);
 		StatsUtil.onEventOfferBackground(mContext, mPckName, EventItem.EVENT_TYPE_SHOW, 
 				CommonDefine.DSP_CHANNEL_INMOBI, CommonDefine.AD_POSITION_TOP_SPOT);
-		
-		InMobi.initialize(mContext, CommonDefine.TOP_SPOT_KEY_INMOBI);
-		//InMobi.setLogLevel(LOG_LEVEL.VERBOSE);
-		TopSpotNativeHelper.getInstance(mContext).recodeShow(mRlView);
+
 	}
 	
 	@Override
@@ -155,8 +143,7 @@ public class TintActivity extends Activity implements OnClickListener{
 //			StatsUtil.onEvent(mContext, StatsDefines.TOP_SPOT_INMOBI, map);
 			StatsUtil.onEventOfferBackground(mContext, mPckName, EventItem.EVENT_TYPE_CLOSE, 
 					CommonDefine.DSP_CHANNEL_INMOBI, CommonDefine.AD_POSITION_TOP_SPOT);
-			
-			TopSpotNativeHelper.getInstance(mContext).clearNativeAd();
+
 			finish();
 		}
 		
@@ -172,16 +159,13 @@ public class TintActivity extends Activity implements OnClickListener{
 //				FlurryUtil.onEvent(mContext, StatsDefines.TOP_SPOT_INMOBI, map);
 				StatsUtil.onEventOfferBackground(mContext, mPckName, EventItem.EVENT_TYPE_CLICK, 
 						CommonDefine.DSP_CHANNEL_INMOBI, CommonDefine.AD_POSITION_TOP_SPOT);
-			
-				InMobi.initialize(mContext, CommonDefine.TOP_SPOT_KEY_INMOBI);
-				TopSpotNativeHelper.getInstance(mContext).recodeClick();
+
 				//InMobi.setLogLevel(LOG_LEVEL.VERBOSE);
 				Utils.openUrl(mContext, mLandingURl);
 				EmobLog.d(TAG, "removeSpotView");
 //				EventTableDBHelper.insertData(mContext,
 //						EventItem.SHOW_TYPE_INMOBI_NATIVE_SPOT, CommonDefine.DSP_CHANNEL_INMOBI,
 //						CommonDefine.AD_POSITION_TOP_SPOT, EventItem.EVENT_TYPE_CLOSE);
-				TopSpotNativeHelper.getInstance(mContext).clearNativeAd();
 				finish();
 		}
 		
@@ -189,7 +173,6 @@ public class TintActivity extends Activity implements OnClickListener{
 	
 	@Override
 	protected void onDestroy() {
-		TopSpotNativeHelper.getInstance(mContext).clearNativeAd();
 		AdTableDBHelper.deleteOneAd(mUrl);
 		ImageMemoryCache.getInstance(mContext).removeOneImg(mUrl);
 		super.onDestroy();

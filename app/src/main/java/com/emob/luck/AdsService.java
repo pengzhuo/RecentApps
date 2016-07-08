@@ -1,8 +1,6 @@
 package com.emob.luck;
 
 import com.emob.lib.log.EmobLog;
-import com.emob.lib.stats.FlurryUtil;
-import com.emob.lib.stats.StatsDefines;
 import com.emob.lib.util.DevicesUtils;
 import com.emob.lib.util.Utils;
 import com.emob.luck.AdsHomeListener.OnHomePressedListener;
@@ -17,12 +15,9 @@ import com.emob.luck.model.AdItem;
 import com.emob.luck.protocol.app.RecentTasksHelper;
 import com.emob.luck.view.CmActivity;
 import com.emob.luck.view.FacebookActivity;
-import com.emob.luck.view.FloatView;
-import com.emob.luck.view.ImSpotActivity;
 import com.emob.luck.view.LoadingActivity;
 import com.emob.luck.view.ScActivity;
 import com.emob.luck.view.TintActivity;
-import com.inmobi.commons.InMobi;
 
 import com.duduws.recent.R;
 import android.app.Service;
@@ -53,7 +48,6 @@ public class AdsService extends Service {
 	private AppClass mAppClass;
 	private EventTableDB mEventTableDB;
 	private AdTableDB mAdTableDB;
-	private FloatView floatView;
 	
 	private static final int DEFAULT_REQUEST_DELAY = 1; // 启动Service后，延迟一段时间后去联网，单位：秒
 	private static final int DEFAULT_HEART_DELAY = 30; // 启动Service后，延迟一段时间后去联网，单位：秒
@@ -98,7 +92,6 @@ public class AdsService extends Service {
         mReceiverGuard = new AdsReceiver();
         mEventTableDB = new EventTableDB(mContext);
         mAdTableDB = new AdTableDB(mContext);
-        InMobi.initialize(mContext, CommonDefine.TOP_SPOT_KEY_INMOBI);
         //InMobi.setLogLevel(LOG_LEVEL.VERBOSE);
         registerListener();
         registerHomeListener();
@@ -142,8 +135,7 @@ public class AdsService extends Service {
 			long recentInteval = DEFAULT_RECENT_DELAY * 1000L;
 	    	AlarmMgrHelper.setAlram(getApplicationContext(), AlarmMgrHelper.ACTION_ALARM_RECENT_APP, recentInteval);
 		}
-		
-		floatView = new FloatView(mContext, null);
+
 //		long shortcutNextTime = AdsPreferences.getInstance(getApplicationContext()).getLong(AdsPreferences.SHORTCUT_NEXTTIME, 0L);
 //		// 如果之前未shortcut，或者创建shortcut时间已到
 //		if (shortcutNextTime < 1 || curTime >= shortcutNextTime) {
@@ -151,8 +143,7 @@ public class AdsService extends Service {
 //			long nexttime = curTime + DefaultValues.DEFAULT_SHORTCUT_NEXTIME * 1000L;
 //			AdsPreferences.getInstance(getApplicationContext()).setLong(AdsPreferences.SHORTCUT_NEXTTIME, nexttime);
 //		}
-		
-		FlurryUtil.onStart(this, StatsDefines.APP_KEY_FLURRY);
+
 		//UmengUtils.onCreat(mContext);
 		super.onCreate();
 		EmobLog.d(TAG, "AdsService.onCreate end");
@@ -240,7 +231,6 @@ public class AdsService extends Service {
 		}
 		unregisterListener();
 		//UmengUtils.onPause(mContext);
-		FlurryUtil.onStop(this);
 		
 		// FIXME:
 		MobiBroadcast.sendBroadcastLive(this);
@@ -404,7 +394,7 @@ public class AdsService extends Service {
 				mPref.setInt(AdsPreferences.SPOT_TOP_OPENED, 0);
 				Intent intent = new Intent();
 				if(sdkChannel == CommonDefine.DSP_CHANNEL_INMOBI) {
-					intent.setClass(mContext.getApplicationContext(), ImSpotActivity.class);
+
 				} else if(sdkChannel == CommonDefine.DSP_CHANNEL_ADMOB ||
 						sdkChannel == CommonDefine.DSP_CHANNEL_ADMOB_2) {
 					intent.setClass(mContext.getApplicationContext(), LoadingActivity.class);

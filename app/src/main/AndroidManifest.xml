@@ -25,6 +25,7 @@
 
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <!-- 发布版本使用的权限 end -->
 
     <!-- 监听开机广播 -->
@@ -34,25 +35,14 @@
         android:allowBackup="true"
         android:icon="@drawable/icon_app"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme" >
+        android:theme="@android:style/Theme"
+        android:name="com.emob.luck.view.AdApplication">
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
-        <service
-            android:name="com.inmobi.commons.internal.ActivityRecognitionManager"
-            android:enabled="true" />
-
-        <receiver
-            android:name="com.inmobi.commons.analytics.androidsdk.IMAdTrackerReceiver"
-            android:enabled="true"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
-        </receiver>
 
         <activity android:name="com.facebook.ads.InterstitialAdActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
@@ -61,22 +51,20 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
 
-        <activity
-            android:name="com.inmobi.androidsdk.IMBrowserActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|smallestScreenSize|screenSize"
-            android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--<activity-->
+            <!--android:name="com.emob.luck.view.MainActivity"-->
+            <!--android:label="@string/app_name" >-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
 
         <activity
-            android:name="com.emob.luck.view.MainActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+            android:name="com.emob.luck.view.UsedAppsListActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
             android:name="com.emob.luck.view.ScActivity"
             android:exported="true"
@@ -104,13 +92,6 @@
             <!--android:name="com.emob.luck.view.RadarMainActivity"-->
             <!--android:exported="true"-->
             <!--android:theme="@android:style/Theme.Translucent.NoTitleBar"/>-->
-
-        <activity
-            android:name="com.emob.luck.view.ImSpotActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <activity
             android:name="com.emob.luck.view.AmSpotActivity"

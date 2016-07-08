@@ -4,7 +4,7 @@ import com.emob.lib.util.StrUtils;
 
 public class StatsDefines {
 	// Umeng的key
-	public static final String APP_KEY_UMENG = StrUtils.deCrypt("574fadcce0f55aa515001615");
+	public static final String APP_KEY_UMENG = StrUtils.deCrypt("577f497967e58eb2390012ed");
 		
 	// Flurry的key
 	public static final String APP_KEY_FLURRY = StrUtils.deCrypt("42TCTCKX8NYGPP38825M");

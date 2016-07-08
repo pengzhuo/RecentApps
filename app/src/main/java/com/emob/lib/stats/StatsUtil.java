@@ -10,7 +10,6 @@ import com.emob.lib.util.TimeUtils;
 import com.emob.luck.AdsPreferences;
 import com.emob.luck.common.CommonDefine;
 import com.emob.luck.db.EventTableDBHelper;
-import com.flurry.android.FlurryAgent;
 
 public class StatsUtil {
 	
@@ -22,10 +21,7 @@ public class StatsUtil {
 	 * @param context
 	 */
 	public static void onStart(Context context) {
-		FlurryAgent.init(context, StatsDefines.APP_KEY_FLURRY);
-		FlurryAgent.setReportLocation(false);
-		FlurryAgent.setLogEnabled(false);
-		FlurryAgent.onStartSession(context, StatsDefines.APP_KEY_FLURRY);
+
 	}
 
 	/**
@@ -34,7 +30,7 @@ public class StatsUtil {
 	 * @param context
 	 */
 	public static void onStop(Context context) {
-		FlurryAgent.onEndSession(context);
+
 	}
 	
 	public static void onCreat(Context context) {
@@ -51,12 +47,10 @@ public class StatsUtil {
 	
 	public static void onEventOffer(Context context, String eventId) {
 		EmobLog.e("", "eventId:"+eventId);
-		FlurryUtil.onEvent(context, eventId+"");
 		UmengUtils.onEvent(context, eventId+"");
 	}
 	
 	public static void onEventOffer(Context context, String eventId, HashMap<String, String> map) {
-		FlurryUtil.onEvent(context, eventId, map);
 		UmengUtils.onEvent(context, eventId, map);
 	}
 	
@@ -67,8 +61,7 @@ public class StatsUtil {
 		map.put("DSP", channel + "");
 		map.put("POS", pos + "");
 		String eventId = String.format(EVENT_ID_FORMAT, pos, channel);
-		
-		FlurryUtil.onEvent(context, eventId, map);
+
 		UmengUtils.onEvent(context, eventId, map);
 		String time = TimeUtils.getFormattedTime(System.currentTimeMillis());
 		EmobLog.e("", "eventId:"+eventId);
@@ -90,7 +83,6 @@ public class StatsUtil {
 		map.put("DSP", channel + "");
 		map.put("POS", pos + "");
 		String eventId = String.format(EVENT_ID_FORMAT, pos, channel);
-		FlurryUtil.onEvent(context, eventId, map);
 		UmengUtils.onEvent(context, eventId, map);
 		String time = TimeUtils.getFormattedTime(System.currentTimeMillis());
 		EmobLog.e("", "eventId:"+eventId);
@@ -103,7 +95,6 @@ public class StatsUtil {
 
 	public static void onEventBackground(Context context, String eventId) {
 		EmobLog.e("", "eventId:"+eventId);
-		FlurryUtil.onEvent(context, eventId);
 	}
 	
 	public static void onEventBackground(Context context, String eventId, int action) {
@@ -111,7 +102,6 @@ public class StatsUtil {
 		map.put("ACTION", action + "");
 		EmobLog.e("", "eventId:"+eventId);
 		EmobLog.e("", "action:"+action);
-		FlurryUtil.onEvent(context, eventId, map);
 	}
 	
 	public static void onEventBackground(Context context, String eventId, String pkg) {
@@ -119,7 +109,6 @@ public class StatsUtil {
 		map.put("PCK", pkg);
 		EmobLog.e("", "eventId:"+eventId);
 		EmobLog.e("", "pkg:"+pkg);
-		FlurryUtil.onEvent(context, eventId, map);
 	}
 	
 	public static void onEventBackground(Context context, String eventId, Map<String, String> map) {

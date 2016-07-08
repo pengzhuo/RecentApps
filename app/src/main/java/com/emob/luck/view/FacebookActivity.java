@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.emob.lib.stats.StatsDefines;
 import com.emob.lib.stats.StatsUtil;
 import com.emob.luck.DspHelper;
 import com.emob.luck.SdkHelper;
@@ -32,6 +31,7 @@ public class FacebookActivity extends Activity implements InterstitialAdListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mSdkChannel = CommonDefine.DSP_CHANNEL_FACEBOOK;
         mPackageName = "";
         Intent intent = getIntent();
@@ -46,6 +46,7 @@ public class FacebookActivity extends Activity implements InterstitialAdListener
         FacebookSdk.sdkInitialize(getApplicationContext());
         String randomString = SdkHelper.getSdkSpotKeyString(getApplicationContext(), CommonDefine.DSP_CHANNEL_FACEBOOK);
         loadInterstitialAd(this, randomString);
+        finish();
     }
 
     private void loadInterstitialAd(Context context, String id){
@@ -65,7 +66,6 @@ public class FacebookActivity extends Activity implements InterstitialAdListener
         } catch (Exception e) {
             e.printStackTrace();
         }
-        finish();
     }
 
     @Override
@@ -77,7 +77,6 @@ public class FacebookActivity extends Activity implements InterstitialAdListener
         } catch (Exception e) {
             e.printStackTrace();
         }
-        finish();
     }
 
     @Override
@@ -89,7 +88,6 @@ public class FacebookActivity extends Activity implements InterstitialAdListener
         } catch (Exception e) {
             e.printStackTrace();
         }
-        finish();
     }
 
     @Override
@@ -113,12 +111,12 @@ public class FacebookActivity extends Activity implements InterstitialAdListener
     }
 
     @Override
-    public void onDestroy(){
-        if (interstitialAd != null){
-            Log.e(TAG, "#### onDestroy interstitialAd !");
-            interstitialAd.destroy();
-            interstitialAd = null;
-        }
+    protected void onDestroy(){
+//        if (interstitialAd != null){
+//            Log.e(TAG, "#### onDestroy interstitialAd !");
+//            interstitialAd.destroy();
+//            interstitialAd = null;
+//        }
         super.onDestroy();
     }
 
@@ -148,7 +146,7 @@ public class FacebookActivity extends Activity implements InterstitialAdListener
         Log.d(TAG, "#### FacebookActivity.showFolder begin");
         try {
             Intent intent = new Intent();
-            intent.setClass(this, AmActivity.class);
+            intent.setClass(this, UsedAppsListActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);
             this.startActivity(intent);
         } catch (Exception e) {

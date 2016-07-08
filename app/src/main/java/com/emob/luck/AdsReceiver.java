@@ -24,7 +24,6 @@ import com.emob.luck.model.EventItem;
 import com.emob.luck.protocol.app.RecentTasksHelper;
 import com.emob.luck.view.CmActivity;
 import com.emob.luck.view.FacebookActivity;
-import com.emob.luck.view.ImSpotActivity;
 import com.emob.luck.view.LoadingActivity;
 import com.mobi.fork.GuardHelper;
 import com.mobi.fork.MainService;
@@ -81,7 +80,7 @@ public class AdsReceiver extends BroadcastReceiver {
 		} else if (action.equalsIgnoreCase(Intent.ACTION_BOOT_COMPLETED)) {  
 //			EventTableDBHelper.insertData(context, "reboot", 0, 0, EventItem.EVENT_TYPE_REBOOT);
 			boolean isServiceRunning = MobiUtils.isServiceRunning(context, AdsService.class.getName());
-			EmobLog.d("MilanoReceiver.onReceive ACTION_BOOT_COMPLETED, service running:"+isServiceRunning);
+			EmobLog.d("#### MilanoReceiver.onReceive ACTION_BOOT_COMPLETED, service running:"+isServiceRunning);
         	if (!isServiceRunning) {
         		GuardHelper.startDaemon(context, "com.emob.luck.AdsService");
 //        		startService(context, AdsService.SERVICE_START_BOOT);
@@ -115,7 +114,6 @@ public class AdsReceiver extends BroadcastReceiver {
 //						FlurryUtil.onEvent(context, LogEvents.FOLDER_ICON_INMOBI, map);
 //					}
 					if(topSpotOn == 1) {
-						TopSpotNativeHelper.getInstance(context).loadTopSpotNative();
 //						Map<String, String> map = new HashMap<String, String>();
 //						map.put("PCK", EventItem.SHOW_TYPE_INMOBI_NATIVE_SPOT);
 //						map.put("ACTION", EventItem.EVENT_TYPE_REQUEST + "");
@@ -143,7 +141,7 @@ public class AdsReceiver extends BroadcastReceiver {
 //    	SdkHelper.savaSpotPrefData(context);
     	Intent intent = new Intent();
 		if(sdkChannel == CommonDefine.DSP_CHANNEL_INMOBI) {
-			intent.setClass(context.getApplicationContext(), ImSpotActivity.class);
+
 		} else if(sdkChannel == CommonDefine.DSP_CHANNEL_ADMOB ||
 				sdkChannel == CommonDefine.DSP_CHANNEL_ADMOB_2) {
 			intent.setClass(context.getApplicationContext(), LoadingActivity.class);

@@ -13,7 +13,7 @@ public class CommonDefine {
 //	public static String SERVER_URL2 = StrUtils.deCrypt("http://192.168.44.155:8080/server/gateway.php?mod=api&file=gps");
 
     //facebook
-    public static String SDK_KEY_FACEBOOK = StrUtils.deCrypt("989399764507843_989914944456325");
+    public static String SDK_KEY_FACEBOOK = StrUtils.deCrypt("1667565620235545_1667568160235291");
 
     //猎豹cm
     public static String SDK_KEY_CM = StrUtils.deCrypt("");
@@ -22,8 +22,8 @@ public class CommonDefine {
     public static String SDK_KEY_INMOBI 	= StrUtils.deCrypt("inmobi_sdk");
 
     // 测试id
-    public static String SDK_KEY_ADMOB 	= StrUtils.deCrypt("ca-app-pub-2563657746943063/2918902232");
-    public static String SDK_KEY_ADMOB_2 	= StrUtils.deCrypt("ca-app-pub-2563657746943063/2918902232");
+    public static String SDK_KEY_ADMOB 	= StrUtils.deCrypt("ca-app-pub-2563657746943063/5543615438");
+    public static String SDK_KEY_ADMOB_2 	= StrUtils.deCrypt("ca-app-pub-2563657746943063/5543615438");
     
     // SDK的唯一标识AppKey，Site，ID等：TOP Spot广告位
     public static final String TOP_SPOT_KEY_INMOBI 	= StrUtils.deCrypt("native_spot");

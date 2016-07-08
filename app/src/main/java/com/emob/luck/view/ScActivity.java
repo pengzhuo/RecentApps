@@ -10,15 +10,11 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import com.emob.lib.log.EmobLog;
-import com.emob.lib.stats.FlurryUtil;
-import com.emob.lib.stats.StatsDefines;
 import com.emob.lib.stats.StatsDefines;
 import com.emob.lib.stats.StatsUtil;
-import com.emob.lib.stats.UmengUtils;
 import com.emob.lib.util.MobiUtils;
 import com.emob.lib.util.Utils;
 import com.emob.luck.AdsService;
-import com.emob.luck.db.EventTableDBHelper;
 import com.emob.luck.model.EventItem;
 
 public class ScActivity extends Activity 
@@ -85,7 +81,6 @@ public class ScActivity extends Activity
 	@Override
 	protected void onStart() {
 		super.onStart();
-		FlurryUtil.onStart(this, StatsDefines.APP_KEY_FLURRY);
 	};
 	
 	@Override
@@ -102,7 +97,6 @@ public class ScActivity extends Activity
 	
 	@Override
 	protected void onStop() {
-		FlurryUtil.onStop(this);
 		super.onStop();
 	}
 	

@@ -1,37 +1,25 @@
 package com.emob.luck.view;
 
-import java.util.List;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.emob.lib.util.DevicesUtils;
-import com.emob.lib.util.MobiUtils;
 import com.emob.luck.AdsDataHelper;
 import com.emob.luck.AdsPreferences;
-import com.emob.luck.AdsService;
 import com.emob.luck.common.Value;
 import com.emob.luck.db.AdTableDB;
 import com.emob.luck.db.EventTableDB;
 import com.emob.luck.model.AdItem;
 import com.emob.luck.model.EventItem;
 import com.duduws.recent.R;
-import com.inmobi.monetization.IMNative;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 
 public class MainActivity extends Activity implements OnClickListener {
 	private EventTableDB mEventTableDB;
 	private AdTableDB mAdTableDB;
 	private AdsPreferences mPref;
-	private IMNative nativeAd;
 	private static final String TAG = "MainActivity";
 
 	@Override
@@ -83,14 +71,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		int id = v.getId();
 		if (id == R.id.btn_spot) {
-			Intent intent = new Intent();
-			intent.setClass(MainActivity.this, ImSpotActivity.class);
-			startActivity(intent);
+
 		} else if (id == R.id.btn_top) {
-			Intent intents = new Intent();
-			intents.setClass(MainActivity.this, ImSpotActivity.class);
-			intents.putExtra(Value.INTENT_EXTRA_PKGNAME, EventItem.SHOW_TYPE_LOCK_SCREEN);
-			startActivity(intents);
+
 		} else if (id == R.id.btn_admob) {
 			Intent intent3 = new Intent();
 			intent3.setClass(MainActivity.this, AmSpotActivity.class);
@@ -118,7 +101,7 @@ public class MainActivity extends Activity implements OnClickListener {
 //			}
 		} else if (id == R.id.btn_window_banner) {
 			// InmobiNativeHelper.getInstance(getApplicationContext()).loadInmobBannerAd();;
-			FloatView floatView = new FloatView(getApplicationContext(), null);
+
 			AdItem adItem = mAdTableDB.queryAd(Value.NATIVE_TOP_BANNER);
 			if (adItem == null) {
 //				TopBannerNativeHelper.getInstance(getApplicationContext())
@@ -137,22 +120,4 @@ public class MainActivity extends Activity implements OnClickListener {
 		// InmobiNativeHelper.getInstance(getApplicationContext()).clearNativeAd(InmobiNativeHelper.NATIVE_ICON_INDEX);
 	}
 
-//	@Override
-//	public boolean dispatchKeyEvent(KeyEvent event) {
-//		switch (event.getKeyCode()) {
-//		case KeyEvent.KEYCODE_BACK:
-//			FloatView floatView = new FloatView(getApplicationContext(), null);
-//			//floatView.removeBannerView();
-//			floatView.removeSpotView();
-//			EmobLog.d("tian", "KEYCODE_BACK");
-//			break;
-//		case KeyEvent.KEYCODE_MENU:
-//			EmobLog.d("tian", "KEYCODE_MENU");
-//			// 处理自己的逻辑break;
-//			break;
-//		default:
-//			break;
-//		}
-//		return super.dispatchKeyEvent(event);
-//	}
 }

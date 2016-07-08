@@ -6,15 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.emob.lib.log.EmobLog;
-import com.emob.lib.stats.FlurryUtil;
 import com.emob.lib.stats.StatsDefines;
 import com.emob.lib.stats.StatsUtil;
 import com.emob.luck.AdsPreferences;
@@ -80,24 +77,9 @@ public class LoadingActivity extends Activity {
 		amSpot.setHandler(mHandler);
 		amSpot.load();
 		StatsUtil.onEventEx(this, CommonDefine.DSP_CHANNEL_ADMOB, triggerType, CommonDefine.AD_TYPE_SPOT, CommonDefine.AD_RESULT_REQUEST);
-//		Toast.makeText(getApplicationContext(), randomString, Toast.LENGTH_LONG).show();
-		Log.e(TAG, "##### " + randomString);
-		
-//		setTimer();
-		EmobLog.d(TAG, "#### LoadingActivity.onCreate end");
+
+		EmobLog.d(TAG, "#### LoadingActivity.onCreate end " + randomString);
 		finish();
-		
-//		new Thread() {
-//			public void run() {
-//				try {
-//					Thread.sleep(100);
-//					 
-//				} catch (InterruptedException e) {
-//				} finally {
-//					mHandler.sendEmptyMessage(0); //告诉主线程执行任务  
-//				}
-//			}
-//		}.start();
 		
 	}
 	
@@ -105,7 +87,6 @@ public class LoadingActivity extends Activity {
 	protected void onStart() {
 		EmobLog.d(TAG, "#### LoadingActivity.onStart");
 		super.onStart();
-		FlurryUtil.onStart(this, StatsDefines.APP_KEY_FLURRY);
 	};
 	
 	@Override
@@ -125,7 +106,6 @@ public class LoadingActivity extends Activity {
 	@Override
 	protected void onStop() {
 		EmobLog.d(TAG, "#### LoadingActivity.onStop");
-		FlurryUtil.onStop(this);
 		super.onStop();
 	}
 	
@@ -135,43 +115,12 @@ public class LoadingActivity extends Activity {
 	@Override
 	protected void onDestroy() {
 		EmobLog.d(TAG, "#### LoadingActivity.onDestroy");
-//		cancleTimer();
-//		im_scan.clearAnimation();
-//		im_dian.clearAnimation();
 		super.onDestroy();
 	}
 	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-//		if (mDisableBack) {
-//			if(keyCode == KeyEvent.KEYCODE_BACK){
-//				EmobLog.e("key", "onKeyDown back");
-//				return true;
-//			}
-//		}
 	  	return super.onKeyDown(keyCode, event);
-	}
-	private static final long PRELOAD_TIMEOUT = 5 * 1000L; // 60秒
-	
-	private void setTimer() {
-//		mTimer = new Timer();
-//        TimerTask tt = new TimerTask() {
-//            @Override
-//            public void run() {
-//            	EmobLog.d(TAG, "LoadingActivity timeout");
-//                cancleTimer();
-//                finish();
-//            }
-//        };
-//        mTimer.schedule(tt, PRELOAD_TIMEOUT);
-	}
-	
-	private void cancleTimer() {
-//		if (mTimer != null) {
-//			EmobLog.e(TAG, "LoadingActivity cancleTimer");
-//			mTimer.cancel();
-//			mTimer.purge();
-//		}
 	}
 	
 	private Handler mHandler = new Handler() {
@@ -273,8 +222,6 @@ public class LoadingActivity extends Activity {
 			Intent intent = new Intent();
 			intent.setClass(mContext, AmActivity.class);
 			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//			intent.putExtra(Value.INTENT_EXTRA_PKGNAME, mPackageName);
-//			intent.putExtra(Value.INTENT_EXTRA_CHANNEL, mSdkChannel);
 			mContext.startActivity(intent);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -1,23 +1,13 @@
 package com.emob.luck;
 
-import java.util.HashMap;
-
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 
 import com.emob.lib.log.EmobLog;
-import com.emob.lib.stats.FlurryUtil;
-import com.emob.lib.stats.StatsDefines;
 import com.emob.lib.util.DevicesUtils;
-import com.emob.lib.util.Utils;
-import com.emob.luck.common.CommonDefine;
-import com.emob.luck.common.DefaultValues;
 import com.emob.luck.common.Value;
-import com.emob.luck.model.EventItem;
-import com.emob.luck.view.AmSpotActivity;
-import com.emob.luck.view.ImSpotActivity;
 
 public class ReqService extends Service {
 	private static final int REASON_LOCK 	= 11;
