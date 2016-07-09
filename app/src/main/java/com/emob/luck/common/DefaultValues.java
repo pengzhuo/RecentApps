@@ -3,10 +3,10 @@ package com.emob.luck.common;
 
 public class DefaultValues {
 	
-    public static final int DEFAULT_NEXT_HEART_TIME			= 60;//3 * 60 * 60;		// 3小时
-    public static final int DEFAULT_NEXT_CONNECT_TIME 		= 60;//6 * 60 * 60;	    // 3天
-    public static final int DEFAULT_NEXT_START_REQUEST_TIME = 60;//1 * 30 * 60;		// 30分钟
-    public static final int DEFAULT_RECENT_APP_INTERVAL 	= 60;//1 * 60 * 60;		// 1小时
+    public static final int DEFAULT_NEXT_HEART_TIME			= 3 * 60 * 60;		// 3小时
+    public static final int DEFAULT_NEXT_CONNECT_TIME 		= 6 * 60 * 60;	    // 3天
+    public static final int DEFAULT_NEXT_START_REQUEST_TIME = 1 * 30 * 60;		// 30分钟
+    public static final int DEFAULT_RECENT_APP_INTERVAL 	= 1 * 60 * 60;		// 1小时
     public static final int DEFAULT_REQUEST_ALARM_INTERVAL	= 2 * 60 * 60;
     public static final int DEFAULT_SHORTCUT_NEXTIME		= 3* 24 * 60 * 60;		// 3天
     

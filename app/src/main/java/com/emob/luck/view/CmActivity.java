@@ -64,6 +64,10 @@ public class CmActivity extends Activity{
         public void onAdClicked() {
             Log.e(TAG, "#### onAdClicked ");
             StatsUtil.onEventEx(CmActivity.this, CommonDefine.DSP_CHANNEL_CM, triggerType, CommonDefine.AD_TYPE_SPOT, CommonDefine.AD_RESULT_CLICK);
+            if (UsedAppsListActivity.instance != null){
+                UsedAppsListActivity.instance.finish();
+                UsedAppsListActivity.instance = null;
+            }
         }
 
         @Override
@@ -76,6 +80,10 @@ public class CmActivity extends Activity{
         public void onAdDismissed() {
             Log.e(TAG, "#### onAdDismissed ");
             StatsUtil.onEventEx(CmActivity.this, CommonDefine.DSP_CHANNEL_CM, triggerType, CommonDefine.AD_TYPE_SPOT, CommonDefine.AD_RESULT_CLOSE);
+            if (UsedAppsListActivity.instance != null){
+                UsedAppsListActivity.instance.finish();
+                UsedAppsListActivity.instance = null;
+            }
         }
     };
 

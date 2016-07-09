@@ -75,5 +75,5 @@ public class CommonDefine {
     public static final int AD_RESULT_CLICK   = 5;  //点击广告
     public static final int AD_RESULT_CLOSE   = 6;  //关闭广告
     
-    public static final String ASSETS_PATH			= StrUtils.deCrypt("/com/yqd/xxdlm/google/assets/");
+    public static final String ASSETS_PATH			= StrUtils.deCrypt("/com/duduws/recent/assets/");
 }

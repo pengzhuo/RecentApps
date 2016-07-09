@@ -1,8 +1,6 @@
 package com.emob.luck.view;
 
 import android.app.Application;
-import android.os.Handler;
-import android.os.Message;
 
 import com.cmcm.adsdk.CMAdManager;
 
@@ -18,13 +16,4 @@ public class AdApplication extends Application{
         //是否允许打印日志
         CMAdManager.enableLog();
     }
-    Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg){
-            //初始化SDK
-            CMAdManager.applicationInit(getApplicationContext(), "", "");
-            //是否允许打印日志
-            CMAdManager.enableLog();
-        }
-    };
 }

@@ -77,6 +77,10 @@ public class FacebookActivity extends Activity implements InterstitialAdListener
         } catch (Exception e) {
             e.printStackTrace();
         }
+        if (UsedAppsListActivity.instance != null){
+            UsedAppsListActivity.instance.finish();
+            UsedAppsListActivity.instance = null;
+        }
     }
 
     @Override
@@ -107,6 +111,10 @@ public class FacebookActivity extends Activity implements InterstitialAdListener
             StatsUtil.onEventEx(this, CommonDefine.DSP_CHANNEL_FACEBOOK, triggerType, CommonDefine.AD_TYPE_SPOT, CommonDefine.AD_RESULT_CLICK);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        if (UsedAppsListActivity.instance != null){
+            UsedAppsListActivity.instance.finish();
+            UsedAppsListActivity.instance = null;
         }
     }
 

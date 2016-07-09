@@ -145,7 +145,6 @@ public class LoadingActivity extends Activity {
 				showFolder();
 				DspHelper.updateSdkSpotCount(mContext, mSdkChannel);
 				StatsUtil.onEventEx(LoadingActivity.this, CommonDefine.DSP_CHANNEL_ADMOB, triggerType, CommonDefine.AD_TYPE_SPOT, CommonDefine.AD_RESULT_SUCCESS);
-				finish();
 				break;
 			case AmListener.ON_CLICK:
 				EmobLog.d(TAG, "#### LoadingActivity.handleMessage onAdLeftApplication");
@@ -155,6 +154,10 @@ public class LoadingActivity extends Activity {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				if (AmActivity.instance != null){
+					AmActivity.instance.finish();
+					AmActivity.instance = null;
+				}
 				break;
 			case AmListener.ON_DISMISS_CLOSE_AD:
 				EmobLog.d(TAG, "#### LoadingActivity.handleMessage onAdClosed");
@@ -163,6 +166,10 @@ public class LoadingActivity extends Activity {
 					StatsUtil.onEventEx(LoadingActivity.this, CommonDefine.DSP_CHANNEL_ADMOB, triggerType, CommonDefine.AD_TYPE_SPOT, CommonDefine.AD_RESULT_CLOSE);
 				} catch (Exception e) {
 					e.printStackTrace();
+				}
+				if (AmActivity.instance != null){
+					AmActivity.instance.finish();
+					AmActivity.instance = null;
 				}
 				break;
 			case AmListener.ON_SHOW_AD:
