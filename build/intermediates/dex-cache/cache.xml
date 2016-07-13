@@ -1,2 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/Pengz/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/bolts-applinks-1.4.0_b720af9d6135c6eab4db981b0093137891b90f8e.jar" />
+    </item>
+    <item
+        jar="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b5e7892fb0708e792e0e933c4c0a0ca0ac7831fb">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-ads-8.4.0_19b4500e4050d03415f9199c12207536ed95cf58.jar" />
+    </item>
+    <item
+        jar="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/com.android.support-cardview-v7-23.4.0_3bb96293bdc99027c8d6ce0309e47256363920f0.jar" />
+    </item>
+    <item
+        jar="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/com.android.support-support-v4-23.4.0_5e8a8f1b1fc137e85354bdb958cee8942ca41863.jar" />
+    </item>
+    <item
+        jar="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/exploded-aar/AudienceNetwork/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="43d4d9546e8ad9a028ffa9747014e4fb3ec975d7">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/intermediates-exploded-aar-AudienceNetwork_56f6ebeadf7c04ba8aeba7bb4bce4f7233a1f9dd.jar" />
+    </item>
+    <item
+        jar="/Users/Pengz/Documents/Android/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/support-annotations-23.4.0_1b6f3daa8627b158867a299d73a274654dd74324.jar" />
+    </item>
+    <item
+        jar="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/com.google.android.gms-play-services-basement-8.4.0_693c72fd62dc4f70d5ec200f858a0da5637b0965.jar" />
+    </item>
+    <item
+        jar="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/libs/umeng-analytics-v5.5.3.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5d503ec571e2e98d972209afa203f94d11882c15">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/umeng-analytics-v5.5.3_789dd32d41558a4ed1f8df179fd7807b77a37082.jar" />
+    </item>
+    <item
+        jar="/Users/Pengz/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/bolts-tasks-1.4.0_3157c96724e44883e771bbbd6b3aba4af5973590.jar" />
+    </item>
+    <item
+        jar="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/internal_impl-23.4.0_3b108dce1781157e50e91e55de8349674925109e.jar" />
+    </item>
+    <item
+        jar="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/exploded-aar/com.jaredrummler/android-processes/1.0.8/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b660c423cc216ac12f860fd829ed9e97cb0c64d1">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/com.jaredrummler-android-processes-1.0.8_d12e6eb285f3c92253950aae3cb9380088bc7aff.jar" />
+    </item>
+    <item
+        jar="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.13.2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3322df7b184ab5c8e8341508431cb3fcf395d13f">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/com.facebook.android-facebook-android-sdk-4.13.2_7d7a4c98fb948b6be56141fb8eab214596341845.jar" />
+    </item>
+    <item
+        jar="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/exploded-aar/cmadsdk_world_base_V3.4.7/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2b905bcfc1f20970fea5bafb08eb8252f1953aef">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/intermediates-exploded-aar-cmadsdk_world_base_V3.4.7_8a0f796e1ccf99f5cbf0553b572126afed0e4e1e.jar" />
+    </item>
+    <item
+        jar="/Users/Pengz/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.2/b8e98ae35bf6e3f14382deb60f2ea6e4e0e220fd/httpcore-4.4.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b8e98ae35bf6e3f14382deb60f2ea6e4e0e220fd">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/httpcore-4.4.2_864b753dd7ba26bda4413fcc58a93f64c4336b19.jar" />
+    </item>
+    <item
+        jar="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/exploded-aar/com.android.support/customtabs/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2d1eaa9e0b98f8fc4c2b989d9b30d4f1480648ac">
+        <dex dex="/Users/Pengz/Documents/EmobLuck/trunk/UsedApps/app/build/intermediates/pre-dexed/release/com.android.support-customtabs-23.4.0_e1ec4104f80c6d55008d162fa47077dcc91defb6.jar" />
+    </item>
+
+</items>

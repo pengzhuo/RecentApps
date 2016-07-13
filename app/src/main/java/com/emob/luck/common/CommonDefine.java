@@ -13,10 +13,10 @@ public class CommonDefine {
 //	public static String SERVER_URL2 = StrUtils.deCrypt("http://192.168.44.155:8080/server/gateway.php?mod=api&file=gps");
 
     //facebook
-    public static String SDK_KEY_FACEBOOK = StrUtils.deCrypt("1667565620235545_1667568160235291");
+    public static String SDK_KEY_FACEBOOK = StrUtils.deCrypt("1667565620235545_1667585370233570");
 
     //猎豹cm
-    public static String SDK_KEY_CM = StrUtils.deCrypt("");
+    public static String SDK_KEY_CM = StrUtils.deCrypt("1734100");
 
     // SDK的唯一标识AppKey，Site，ID等：直接调用sdk SPOT接口
     public static String SDK_KEY_INMOBI 	= StrUtils.deCrypt("inmobi_sdk");

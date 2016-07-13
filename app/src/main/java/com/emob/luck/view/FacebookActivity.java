@@ -15,6 +15,7 @@ import com.emob.luck.model.EventItem;
 import com.facebook.FacebookSdk;
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
+import com.facebook.ads.AdSettings;
 import com.facebook.ads.InterstitialAd;
 import com.facebook.ads.InterstitialAdListener;
 
@@ -43,6 +44,7 @@ public class FacebookActivity extends Activity implements InterstitialAdListener
 
         Log.e(TAG, "#### FacebookActivity onCreate " + mSdkChannel + " " + mPackageName + " " + triggerType);
         //facebook SDK初始化
+//        AdSettings.addTestDevice("cc5f69e930bd38b8f2152ce9087eaa8f");
         FacebookSdk.sdkInitialize(getApplicationContext());
         String randomString = SdkHelper.getSdkSpotKeyString(getApplicationContext(), CommonDefine.DSP_CHANNEL_FACEBOOK);
         loadInterstitialAd(this, randomString);

@@ -19,18 +19,22 @@ public class DspHelper {
 	private static int[] SDK_SPOT_CHANNELS = {
 			CommonDefine.DSP_CHANNEL_FACEBOOK,
 			CommonDefine.DSP_CHANNEL_ADMOB,
+			CommonDefine.DSP_CHANNEL_CM,
 		};
 	private static int[] TOP_BANNER_CHANNELS = {
 			CommonDefine.DSP_CHANNEL_FACEBOOK,
 			CommonDefine.DSP_CHANNEL_ADMOB,
+			CommonDefine.DSP_CHANNEL_CM,
 		};
 	private static int[] TOP_SPOT_CHANNELS = {
 			CommonDefine.DSP_CHANNEL_FACEBOOK,
 			CommonDefine.DSP_CHANNEL_ADMOB,
+			CommonDefine.DSP_CHANNEL_CM,
 		};
 	private static int[] FOLDER_ICON_CHANNELS = {
 			CommonDefine.DSP_CHANNEL_FACEBOOK,
 			CommonDefine.DSP_CHANNEL_ADMOB,
+			CommonDefine.DSP_CHANNEL_CM,
 		};
 	
 	public static int isGloablLockEnable(Context context) {

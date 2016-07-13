@@ -8,6 +8,7 @@ import android.util.Log;
 import com.cmcm.adsdk.interstitial.InterstitialAdCallBack;
 import com.cmcm.adsdk.interstitial.InterstitialAdManager;
 import com.emob.lib.stats.StatsUtil;
+import com.emob.luck.DspHelper;
 import com.emob.luck.SdkHelper;
 import com.emob.luck.common.CommonDefine;
 import com.emob.luck.common.Value;
@@ -56,6 +57,7 @@ public class CmActivity extends Activity{
         public void onAdLoaded() {
             showFolder();
             Log.e(TAG, "#### onAdLoaded ");
+            DspHelper.updateSdkSpotCount(CmActivity.this, mSdkChannel);
             StatsUtil.onEventEx(CmActivity.this, CommonDefine.DSP_CHANNEL_CM, triggerType, CommonDefine.AD_TYPE_SPOT, CommonDefine.AD_RESULT_SUCCESS);
             interstitialAdManager.showAd();
         }
