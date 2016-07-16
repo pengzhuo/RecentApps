@@ -10,7 +10,9 @@ import com.cmcm.adsdk.interstitial.InterstitialAdManager;
 import com.emob.lib.stats.StatsUtil;
 import com.emob.luck.DspHelper;
 import com.emob.luck.SdkHelper;
+import com.emob.luck.SdkPreferences;
 import com.emob.luck.common.CommonDefine;
+import com.emob.luck.common.DefaultValues;
 import com.emob.luck.common.Value;
 
 /**
@@ -51,6 +53,14 @@ public class CmActivity extends Activity{
         public void onAdLoadFailed(int i) {
             Log.e(TAG, "#### onAdLoadFailed " + i);
             StatsUtil.onEventEx(CmActivity.this, CommonDefine.DSP_CHANNEL_CM, triggerType, CommonDefine.AD_TYPE_SPOT, CommonDefine.AD_RESULT_FAIL);
+            SdkPreferences sdkPref = SdkPreferences.getInstance(CmActivity.this);
+            int _num = sdkPref.getInt(CommonDefine.DSP_CHANNEL_CM, SdkPreferences.SDK_SITE_HAVE_TRIES_NUM, 0) + 1;
+            Log.e("", "#### cmcm tries num is " + _num);
+            sdkPref.setInt(CommonDefine.DSP_CHANNEL_CM, SdkPreferences.SDK_SITE_HAVE_TRIES_NUM, _num);
+            if (_num >= sdkPref.getInt(CommonDefine.DSP_CHANNEL_CM, SdkPreferences.SDK_SITE_TRIES_NUM, DefaultValues.SDK_SITE_TRIES_NUM)){
+                sdkPref.setBoolean(CommonDefine.DSP_CHANNEL_CM, SdkPreferences.SDK_SITE_TRIES_OVER, true);
+                sdkPref.setLong(CommonDefine.DSP_CHANNEL_CM, SdkPreferences.SDK_SITE_TRIES_TIME, System.currentTimeMillis());
+            }
         }
 
         @Override

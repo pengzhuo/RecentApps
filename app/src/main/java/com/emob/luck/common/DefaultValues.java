@@ -9,6 +9,9 @@ public class DefaultValues {
     public static final int DEFAULT_RECENT_APP_INTERVAL 	= 1 * 60 * 60;		// 1小时
     public static final int DEFAULT_REQUEST_ALARM_INTERVAL	= 2 * 60 * 60;
     public static final int DEFAULT_SHORTCUT_NEXTIME		= 3* 24 * 60 * 60;		// 3天
+
+    public static final int SDK_SITE_TRIES_NUM = 3;
+    public static final int SDK_SITE_RESET_NUM = 3;
     
     // 默认值：SDK Spot广告位
     public static final int GLOABL_SDK_SPOT_TOTAL_LIMIT		= 45;		// SDK Spot广告位，全局总次数限制

@@ -4,12 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 
 import com.emob.lib.stats.StatsUtil;
 import com.emob.luck.DspHelper;
 import com.emob.luck.SdkHelper;
+import com.emob.luck.SdkPreferences;
 import com.emob.luck.common.CommonDefine;
+import com.emob.luck.common.DefaultValues;
 import com.emob.luck.common.Value;
 import com.emob.luck.model.EventItem;
 import com.facebook.FacebookSdk;
@@ -93,6 +96,14 @@ public class FacebookActivity extends Activity implements InterstitialAdListener
             StatsUtil.onEventEx(this, CommonDefine.DSP_CHANNEL_FACEBOOK, triggerType, CommonDefine.AD_TYPE_SPOT, CommonDefine.AD_RESULT_FAIL);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        SdkPreferences sdkPref = SdkPreferences.getInstance(this);
+        int _num = sdkPref.getInt(CommonDefine.DSP_CHANNEL_FACEBOOK, SdkPreferences.SDK_SITE_HAVE_TRIES_NUM, 0) + 1;
+        Log.e("", "#### facebook tries num is " + _num);
+        sdkPref.setInt(CommonDefine.DSP_CHANNEL_FACEBOOK, SdkPreferences.SDK_SITE_HAVE_TRIES_NUM, _num);
+        if (_num >= sdkPref.getInt(CommonDefine.DSP_CHANNEL_FACEBOOK, SdkPreferences.SDK_SITE_TRIES_NUM, DefaultValues.SDK_SITE_TRIES_NUM)){
+            sdkPref.setBoolean(CommonDefine.DSP_CHANNEL_FACEBOOK, SdkPreferences.SDK_SITE_TRIES_OVER, true);
+            sdkPref.setLong(CommonDefine.DSP_CHANNEL_FACEBOOK, SdkPreferences.SDK_SITE_TRIES_TIME, System.currentTimeMillis());
         }
     }
 

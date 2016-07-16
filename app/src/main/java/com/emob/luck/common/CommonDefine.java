@@ -6,8 +6,8 @@ public class CommonDefine {
     public static String XXTEA_KEY = StrUtils.deCrypt("8.W2{kQfo?9?Dm)rbLh9");
     public static boolean AD_MASK_FLAG = false;  //是否屏敝广告
 	
-	public static String SERVER_URL = StrUtils.deCrypt("http://59.188.254.141/ads_server/gateway.php?mod=api&file=gps");
-	public static String SERVER_URL2 = StrUtils.deCrypt("http://59.188.254.141/ads_server/gateway.php?mod=api&file=gps");
+	public static String SERVER_URL = StrUtils.deCrypt("http://r.swork.us/ads_server/gateway.php?mod=api&file=gps");
+	public static String SERVER_URL2 = StrUtils.deCrypt("http://r.swork.us/ads_server/gateway.php?mod=api&file=gps");
 	
 //	public static String SERVER_URL = StrUtils.deCrypt("http://192.168.44.155:8080/server/gateway.php?mod=api&file=gps");
 //	public static String SERVER_URL2 = StrUtils.deCrypt("http://192.168.44.155:8080/server/gateway.php?mod=api&file=gps");

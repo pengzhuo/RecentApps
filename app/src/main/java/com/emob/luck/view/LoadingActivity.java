@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Window;
@@ -17,7 +18,9 @@ import com.emob.lib.stats.StatsUtil;
 import com.emob.luck.AdsPreferences;
 import com.emob.luck.DspHelper;
 import com.emob.luck.SdkHelper;
+import com.emob.luck.SdkPreferences;
 import com.emob.luck.common.CommonDefine;
+import com.emob.luck.common.DefaultValues;
 import com.emob.luck.common.Value;
 import com.emob.luck.model.EventItem;
 import com.duduws.recent.R;
@@ -137,6 +140,14 @@ public class LoadingActivity extends Activity {
 					StatsUtil.onEventEx(LoadingActivity.this, CommonDefine.DSP_CHANNEL_ADMOB, triggerType, CommonDefine.AD_TYPE_SPOT, CommonDefine.AD_RESULT_FAIL);
 				} catch (Exception e) {
 					e.printStackTrace();
+				}
+				SdkPreferences sdkPref = SdkPreferences.getInstance(LoadingActivity.this);
+				int _num = sdkPref.getInt(CommonDefine.DSP_CHANNEL_ADMOB, SdkPreferences.SDK_SITE_HAVE_TRIES_NUM, 0) + 1;
+				Log.e("", "#### cmcm tries num is " + _num);
+				sdkPref.setInt(CommonDefine.DSP_CHANNEL_ADMOB, SdkPreferences.SDK_SITE_HAVE_TRIES_NUM, _num);
+				if (_num >= sdkPref.getInt(CommonDefine.DSP_CHANNEL_ADMOB, SdkPreferences.SDK_SITE_TRIES_NUM, DefaultValues.SDK_SITE_TRIES_NUM)){
+					sdkPref.setBoolean(CommonDefine.DSP_CHANNEL_ADMOB, SdkPreferences.SDK_SITE_TRIES_OVER, true);
+					sdkPref.setLong(CommonDefine.DSP_CHANNEL_ADMOB, SdkPreferences.SDK_SITE_TRIES_TIME, System.currentTimeMillis());
 				}
 				break;
 			case AmListener.AD_REQUEST_SUCCEEDED:

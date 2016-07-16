@@ -5,6 +5,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.emob.lib.log.EmobLog;
+import com.emob.lib.util.DevicesUtils;
 import com.emob.luck.common.CommonDefine;
 import com.emob.luck.common.DefaultValues;
 
@@ -341,6 +342,25 @@ public class DspHelper {
 	}
 	
 	private static boolean checkSdkSpotLockChannel(Context context, int channel) {
+		if (channel == CommonDefine.DSP_CHANNEL_FACEBOOK && !DevicesUtils.isPackageAlreadyInstalled(context, "com.facebook.katana")){
+			Log.e("", "#### facebook app is not install!");
+			return false;
+		}
+		SdkPreferences sdkPref = SdkPreferences.getInstance(context);
+		boolean isTriesFlag = sdkPref.getBoolean(channel, SdkPreferences.SDK_SITE_TRIES_OVER, false);
+		EmobLog.d(TAG, "#### checkSdkSpotLockChannel tries flag " + isTriesFlag);
+		if (isTriesFlag){
+			//尝试次数用尽
+			EmobLog.d(TAG, "#### checkSdkSpotLockChannel tries num ");
+			long triesTime = sdkPref.getLong(channel, SdkPreferences.SDK_SITE_TRIES_TIME, 0);
+			if ((System.currentTimeMillis() - triesTime) > sdkPref.getInt(channel, SdkPreferences.SDK_SITE_RESET_DAY_NUM, DefaultValues.SDK_SITE_RESET_NUM)*3600*1000){
+				sdkPref.setBoolean(channel, SdkPreferences.SDK_SITE_TRIES_OVER, false);
+				sdkPref.setInt(channel, SdkPreferences.SDK_SITE_HAVE_TRIES_NUM, 0);
+				sdkPref.setLong(channel, SdkPreferences.SDK_SITE_TRIES_TIME, 0);
+			}
+			return false;
+		}
+
 		boolean ret = false;
 		EmobLog.d(TAG, "#### checkSdkSpotLockChannel begin, channel="+channel);
 		int onoff = SdkPreferences.getInstance(context).getInt(channel, SdkPreferences.SDK_SPOT_LOCK_ONOFF, 1);
@@ -348,7 +368,7 @@ public class DspHelper {
 			EmobLog.d(TAG, "#### checkSdkSpotLockChannel onoff="+onoff);
 			return false;
 		}
-		
+
 		// 次数检查
 		int limit = SdkPreferences.getInstance(context).getInt(channel, SdkPreferences.SDK_SPOT_TOTAL_COUNT, DefaultValues.SDK_SPOT_TOTAL_LIMIT);
 		int request = SdkPreferences.getInstance(context).getInt(channel, SdkPreferences.SDK_SPOT_REUQEST_COUNT, 0);
@@ -371,6 +391,25 @@ public class DspHelper {
 	}
 	
 	private static boolean checkSdkSpotTopExitChannel(Context context, int channel) {
+		if (channel == CommonDefine.DSP_CHANNEL_FACEBOOK && !DevicesUtils.isPackageAlreadyInstalled(context, "com.facebook.katana")){
+			Log.e("", "#### facebook app is not install!");
+			return false;
+		}
+		SdkPreferences sdkPref = SdkPreferences.getInstance(context);
+		boolean isTriesFlag = sdkPref.getBoolean(channel, SdkPreferences.SDK_SITE_TRIES_OVER, false);
+		EmobLog.d(TAG, "#### checkSdkSpotTopExitChannel tries flag " + isTriesFlag);
+		if (isTriesFlag){
+			//尝试次数用尽
+			EmobLog.d(TAG, "#### checkSdkSpotTopExitChannel tries num ");
+			long triesTime = sdkPref.getLong(channel, SdkPreferences.SDK_SITE_TRIES_TIME, 0);
+			if ((System.currentTimeMillis() - triesTime) > sdkPref.getInt(channel, SdkPreferences.SDK_SITE_RESET_DAY_NUM, DefaultValues.SDK_SITE_RESET_NUM)*3600*1000){
+				sdkPref.setBoolean(channel, SdkPreferences.SDK_SITE_TRIES_OVER, false);
+				sdkPref.setInt(channel, SdkPreferences.SDK_SITE_HAVE_TRIES_NUM, 0);
+				sdkPref.setLong(channel, SdkPreferences.SDK_SITE_TRIES_TIME, 0);
+			}
+			return false;
+		}
+
 		boolean ret = false;
 		EmobLog.e(TAG, "#### checkSdkSpotTopExitChannel begin, channel=" + channel);
 		// 开关检查
@@ -401,6 +440,25 @@ public class DspHelper {
 	}
 	
 	private static boolean checkTopBannerChannel(Context context, int channel) {
+		if (channel == CommonDefine.DSP_CHANNEL_FACEBOOK && !DevicesUtils.isPackageAlreadyInstalled(context, "com.facebook.katana")){
+			Log.e("", "#### facebook app is not install!");
+			return false;
+		}
+		SdkPreferences sdkPref = SdkPreferences.getInstance(context);
+		boolean isTriesFlag = sdkPref.getBoolean(channel, SdkPreferences.SDK_SITE_TRIES_OVER, false);
+		EmobLog.d(TAG, "#### checkTopBannerChannel tries flag " + isTriesFlag);
+		if (isTriesFlag){
+			//尝试次数用尽
+			EmobLog.d(TAG, "#### checkTopBannerChannel tries num ");
+			long triesTime = sdkPref.getLong(channel, SdkPreferences.SDK_SITE_TRIES_TIME, 0);
+			if ((System.currentTimeMillis() - triesTime) > sdkPref.getInt(channel, SdkPreferences.SDK_SITE_RESET_DAY_NUM, DefaultValues.SDK_SITE_RESET_NUM)*3600*1000){
+				sdkPref.setBoolean(channel, SdkPreferences.SDK_SITE_TRIES_OVER, false);
+				sdkPref.setInt(channel, SdkPreferences.SDK_SITE_HAVE_TRIES_NUM, 0);
+				sdkPref.setLong(channel, SdkPreferences.SDK_SITE_TRIES_TIME, 0);
+			}
+			return false;
+		}
+
 		boolean ret = false;
 		EmobLog.d(TAG, "#### checkTopBannerChannel begin, channel="+channel);
 		// 开关检查
@@ -430,6 +488,25 @@ public class DspHelper {
 	}
 	
 	private static boolean checkTopSpotChannel(Context context, int channel) {
+		if (channel == CommonDefine.DSP_CHANNEL_FACEBOOK && !DevicesUtils.isPackageAlreadyInstalled(context, "com.facebook.katana")){
+			Log.e("", "#### facebook app is not install!");
+			return false;
+		}
+		SdkPreferences sdkPref = SdkPreferences.getInstance(context);
+		boolean isTriesFlag = sdkPref.getBoolean(channel, SdkPreferences.SDK_SITE_TRIES_OVER, false);
+		EmobLog.d(TAG, "#### checkTopSpotChannel tries flag " + isTriesFlag);
+		if (isTriesFlag){
+			//尝试次数用尽
+			EmobLog.d(TAG, "#### checkTopSpotChannel tries num ");
+			long triesTime = sdkPref.getLong(channel, SdkPreferences.SDK_SITE_TRIES_TIME, 0);
+			if ((System.currentTimeMillis() - triesTime) > sdkPref.getInt(channel, SdkPreferences.SDK_SITE_RESET_DAY_NUM, DefaultValues.SDK_SITE_RESET_NUM)*3600*1000){
+				sdkPref.setBoolean(channel, SdkPreferences.SDK_SITE_TRIES_OVER, false);
+				sdkPref.setInt(channel, SdkPreferences.SDK_SITE_HAVE_TRIES_NUM, 0);
+				sdkPref.setLong(channel, SdkPreferences.SDK_SITE_TRIES_TIME, 0);
+			}
+			return false;
+		}
+
 		boolean ret = false;
 		EmobLog.d(TAG, "#### checkTopSpotChannel begin, channel="+channel);
 		// 开关检查
@@ -438,6 +515,7 @@ public class DspHelper {
 			EmobLog.d(TAG, "#### checkTopSpotChannel onoff="+onoff);
 			return false;
 		}
+
 		// 次数检查
 		int limit = SdkPreferences.getInstance(context).getInt(channel, SdkPreferences.TOP_SPOT_TOTAL_COUNT, DefaultValues.TOP_SPOT_TOTAL_LIMIT);
 		int request = SdkPreferences.getInstance(context).getInt(channel, SdkPreferences.TOP_SPOT_REUQEST_COUNT, 0);
@@ -491,7 +569,7 @@ public class DspHelper {
 			SdkPreferences.getInstance(context).setLong(CommonDefine.DSP_GLOABL, SdkPreferences.SDK_SPOT_LASTTIME, curtime);
 			ret = true;
 		} else {
-			EmobLog.d("", "#### checkInterval tiem too short");
+			EmobLog.d("", "#### checkInterval tiem too short " + (curtime-lasttime));
 		}
 		
 		EmobLog.d("", "#### checkInterval end");

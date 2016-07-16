@@ -90,8 +90,8 @@ public class ProtocolManager
 			body = new String(Base64.encode(XXTea.encrypt(body.getBytes(), CommonDefine.XXTEA_KEY.getBytes())));
 			String[] urls = getUrls();
 			
-			EmobLog.e("", "urls: " + urls[0] + ", "+urls[1]);
-			EmobLog.e("", "body: " + body);
+//			EmobLog.e("", "#### urls: " + urls[0] + ", "+urls[1]);
+//			EmobLog.e("", "#### body: " + body);
 			
 			String response = HTTPRequest.httpRequest(mContext, urls, body.getBytes("UTF-8"), "dontcompress");
 			if (!TextUtils.isEmpty(response)) {
@@ -270,20 +270,22 @@ public class ProtocolManager
 						channel = CommonDefine.DSP_CHANNEL_CM;
 						CommonDefine.SDK_KEY_CM = object.optString("site");
 					}
-					int onoff = (Integer) object.optInt("lock_action");
-					int onoff2 = (Integer) object.optInt("topapp_exit_action");
+					int onoff = object.optInt("lock_action");
+					int onoff2 = object.optInt("topapp_exit_action");
 					int randomInt = channel;//(Integer) object.optInt(Value.DSP_ID_INT);
-					int dspTotalLimt = (Integer) object.optInt("app_count");
-					int dspShowInterval = (Integer) object.optInt("app_interval");
+					int dspTotalLimt = object.optInt("app_count");
+					int dspShowInterval = object.optInt("app_interval");
+					int tries_num = object.optInt("tries_num");
+					int reset_day_num = object.optInt("reset_day_num");
 
 					sdkPrefs.setInt(channel, SdkPreferences.SDK_SPOT_LOCK_ONOFF, onoff);
 					sdkPrefs.setInt(channel, SdkPreferences.SDK_SPOT_TOP_EXIT_ONOFF, onoff2);
 					sdkPrefs.setInt(channel, SdkPreferences.SDK_SPOT_TOTAL_COUNT, dspTotalLimt);
 					sdkPrefs.setInt(channel, SdkPreferences.SDK_SPOT_SHOW_INTERVAL, dspShowInterval);
-					if (channel == CommonDefine.DSP_CHANNEL_AIRPUSH) {
-						sdkPrefs.setInt(channel, SdkPreferences.SDK_SPOT_DSP_KEY_INT, randomInt);
-					}
-					Log.e("#### ProtocolManager", "site " + channel + "," + onoff + "," + onoff2 + "," + dspTotalLimt + "," + dspShowInterval + "," + randomInt);
+					sdkPrefs.setInt(channel, SdkPreferences.SDK_SITE_TRIES_NUM, tries_num);
+					sdkPrefs.setInt(channel, SdkPreferences.SDK_SITE_RESET_DAY_NUM, reset_day_num);
+					Log.e("#### ProtocolManager", "site " + channel + "," + onoff + "," + onoff2 + "," + dspTotalLimt + "," +
+														dspShowInterval + "," + randomInt + "," + tries_num + "," + reset_day_num);
 				}
 			}
 

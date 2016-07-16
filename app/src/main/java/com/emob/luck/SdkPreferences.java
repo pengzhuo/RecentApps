@@ -55,6 +55,13 @@ public class SdkPreferences {
 	public static final String ICON_DSP_KEY_INT 			= StrUtils.deCrypt("icon_random_int");	// SDK渠道：1-inmobi，2-airpush，3-admob
 	public static final String ICON_REUQEST_COUNT			= StrUtils.deCrypt("icon_req_count");	
 	public static final String ICON_NEXT_TIME				= StrUtils.deCrypt("icon_next_time");
+
+	public static final String SDK_SITE_TRIES_NUM 			= StrUtils.deCrypt("SDK_SITE_TRIES_NUM");  //尝试次数
+	public static final String SDK_SITE_RESET_DAY_NUM 		= StrUtils.deCrypt("SDK_SITE_RESET_DAY_NUM");  //尝试次数清零周期
+	public static final String SDK_SITE_HAVE_TRIES_NUM		= StrUtils.deCrypt("SDK_SITE_HAVE_TRIES_NUM");  //已经尝试的次数
+	public static final String SDK_SITE_TRIES_TIME 			= StrUtils.deCrypt("SDK_SITE_TRIES_TIME");  //尝试次数全部用完的时间
+	public static final String SDK_SITE_REQUEST_FAIL 		= StrUtils.deCrypt("SDK_SITE_REQUEST_FAIL");  //上次尝试失败的渠道
+	public static final String SDK_SITE_TRIES_OVER 			= StrUtils.deCrypt("SDK_SITE_TRIES_OVER");  //尝试次数用户完标志
 	
 	private static SdkPreferences mPreferences;
 	private Context mContext;
@@ -143,6 +150,24 @@ public class SdkPreferences {
 			return 0;
 		}
 		return prefs.getInt((String) key, defValue);
+	}
+
+	public <T> void setBoolean(int channel, T key, boolean value) {
+		Editor editor = getEditor(channel);
+		if (editor == null) {
+			return;
+		}
+		editor.putBoolean(key.toString(), value);
+		editor.commit();
+	}
+
+	public <T> boolean getBoolean(int channel, T key, boolean defValue)
+	{
+		SharedPreferences prefs = getPrefs(channel);
+		if (prefs==null) {
+			return false;
+		}
+		return prefs.getBoolean(key.toString(), defValue);
 	}
 	
 	private void ensurePrefs(int channel) {
