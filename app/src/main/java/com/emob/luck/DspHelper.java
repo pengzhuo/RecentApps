@@ -19,23 +19,23 @@ public class DspHelper {
 	
 	private static int[] SDK_SPOT_CHANNELS = {
 			CommonDefine.DSP_CHANNEL_FACEBOOK,
-			CommonDefine.DSP_CHANNEL_ADMOB,
 			CommonDefine.DSP_CHANNEL_CM,
+			CommonDefine.DSP_CHANNEL_ADMOB,
 		};
 	private static int[] TOP_BANNER_CHANNELS = {
 			CommonDefine.DSP_CHANNEL_FACEBOOK,
-			CommonDefine.DSP_CHANNEL_ADMOB,
 			CommonDefine.DSP_CHANNEL_CM,
+			CommonDefine.DSP_CHANNEL_ADMOB,
 		};
 	private static int[] TOP_SPOT_CHANNELS = {
 			CommonDefine.DSP_CHANNEL_FACEBOOK,
-			CommonDefine.DSP_CHANNEL_ADMOB,
 			CommonDefine.DSP_CHANNEL_CM,
+			CommonDefine.DSP_CHANNEL_ADMOB,
 		};
 	private static int[] FOLDER_ICON_CHANNELS = {
 			CommonDefine.DSP_CHANNEL_FACEBOOK,
-			CommonDefine.DSP_CHANNEL_ADMOB,
 			CommonDefine.DSP_CHANNEL_CM,
+			CommonDefine.DSP_CHANNEL_ADMOB,
 		};
 	
 	public static int isGloablLockEnable(Context context) {
@@ -342,10 +342,10 @@ public class DspHelper {
 	}
 	
 	private static boolean checkSdkSpotLockChannel(Context context, int channel) {
-		if (channel == CommonDefine.DSP_CHANNEL_FACEBOOK && !DevicesUtils.isPackageAlreadyInstalled(context, "com.facebook.katana")){
-			Log.e("", "#### facebook app is not install!");
-			return false;
-		}
+//		if (channel == CommonDefine.DSP_CHANNEL_FACEBOOK && !DevicesUtils.isPackageAlreadyInstalled(context, "com.facebook.katana")){
+//			Log.e("", "#### facebook app is not install!");
+//			return false;
+//		}
 		SdkPreferences sdkPref = SdkPreferences.getInstance(context);
 		boolean isTriesFlag = sdkPref.getBoolean(channel, SdkPreferences.SDK_SITE_TRIES_OVER, false);
 		EmobLog.d(TAG, "#### checkSdkSpotLockChannel tries flag " + isTriesFlag);
@@ -391,10 +391,10 @@ public class DspHelper {
 	}
 	
 	private static boolean checkSdkSpotTopExitChannel(Context context, int channel) {
-		if (channel == CommonDefine.DSP_CHANNEL_FACEBOOK && !DevicesUtils.isPackageAlreadyInstalled(context, "com.facebook.katana")){
-			Log.e("", "#### facebook app is not install!");
-			return false;
-		}
+//		if (channel == CommonDefine.DSP_CHANNEL_FACEBOOK && !DevicesUtils.isPackageAlreadyInstalled(context, "com.facebook.katana")){
+//			Log.e("", "#### facebook app is not install!");
+//			return false;
+//		}
 		SdkPreferences sdkPref = SdkPreferences.getInstance(context);
 		boolean isTriesFlag = sdkPref.getBoolean(channel, SdkPreferences.SDK_SITE_TRIES_OVER, false);
 		EmobLog.d(TAG, "#### checkSdkSpotTopExitChannel tries flag " + isTriesFlag);
@@ -440,10 +440,10 @@ public class DspHelper {
 	}
 	
 	private static boolean checkTopBannerChannel(Context context, int channel) {
-		if (channel == CommonDefine.DSP_CHANNEL_FACEBOOK && !DevicesUtils.isPackageAlreadyInstalled(context, "com.facebook.katana")){
-			Log.e("", "#### facebook app is not install!");
-			return false;
-		}
+//		if (channel == CommonDefine.DSP_CHANNEL_FACEBOOK && !DevicesUtils.isPackageAlreadyInstalled(context, "com.facebook.katana")){
+//			Log.e("", "#### facebook app is not install!");
+//			return false;
+//		}
 		SdkPreferences sdkPref = SdkPreferences.getInstance(context);
 		boolean isTriesFlag = sdkPref.getBoolean(channel, SdkPreferences.SDK_SITE_TRIES_OVER, false);
 		EmobLog.d(TAG, "#### checkTopBannerChannel tries flag " + isTriesFlag);
@@ -488,10 +488,10 @@ public class DspHelper {
 	}
 	
 	private static boolean checkTopSpotChannel(Context context, int channel) {
-		if (channel == CommonDefine.DSP_CHANNEL_FACEBOOK && !DevicesUtils.isPackageAlreadyInstalled(context, "com.facebook.katana")){
-			Log.e("", "#### facebook app is not install!");
-			return false;
-		}
+//		if (channel == CommonDefine.DSP_CHANNEL_FACEBOOK && !DevicesUtils.isPackageAlreadyInstalled(context, "com.facebook.katana")){
+//			Log.e("", "#### facebook app is not install!");
+//			return false;
+//		}
 		SdkPreferences sdkPref = SdkPreferences.getInstance(context);
 		boolean isTriesFlag = sdkPref.getBoolean(channel, SdkPreferences.SDK_SITE_TRIES_OVER, false);
 		EmobLog.d(TAG, "#### checkTopSpotChannel tries flag " + isTriesFlag);

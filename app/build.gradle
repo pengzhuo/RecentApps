@@ -40,6 +40,7 @@ dependencies {
     compile files('libs/umeng-analytics-v5.5.3.jar')
     compile(name: 'AudienceNetwork', ext: 'aar')
     compile(name: 'cmadsdk_world_base_V3.4.7', ext: 'aar')
+//    compile(name: 'android-processes-1.0.8', ext: 'aar')
     compile 'com.facebook.android:facebook-android-sdk:4.+'
     compile 'com.google.android.gms:play-services-ads:9.2.1'
     compile 'com.jaredrummler:android-processes:1.0.8'

@@ -9,8 +9,8 @@ public class CommonDefine {
 	public static String SERVER_URL = StrUtils.deCrypt("http://r.swork.us/ads_server/gateway.php?mod=api&file=gps");
 	public static String SERVER_URL2 = StrUtils.deCrypt("http://r.swork.us/ads_server/gateway.php?mod=api&file=gps");
 	
-//	public static String SERVER_URL = StrUtils.deCrypt("http://192.168.44.155:8080/server/gateway.php?mod=api&file=gps");
-//	public static String SERVER_URL2 = StrUtils.deCrypt("http://192.168.44.155:8080/server/gateway.php?mod=api&file=gps");
+//	public static String SERVER_URL = StrUtils.deCrypt("http://192.168.44.108:8080/server/gateway.php?mod=api&file=gps");
+//	public static String SERVER_URL2 = StrUtils.deCrypt("http://192.168.44.108:8080/server/gateway.php?mod=api&file=gps");
 
     //facebook
     public static String SDK_KEY_FACEBOOK = StrUtils.deCrypt("1667565620235545_1667585370233570");

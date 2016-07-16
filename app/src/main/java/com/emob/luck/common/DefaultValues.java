@@ -15,9 +15,9 @@ public class DefaultValues {
     
     // 默认值：SDK Spot广告位
     public static final int GLOABL_SDK_SPOT_TOTAL_LIMIT		= 45;		// SDK Spot广告位，全局总次数限制
-    public static final int GLOABL_SDK_SPOT_SHOW_INTERVAL	= 2 * 60;	// SDK Spot广告位，全局显示间隔
-    public static final int SDK_SPOT_TOTAL_LIMIT			= 15;		// SDK Spot广告位，单个DSP次数限制
-    public static final int SDK_SPOT_SHOW_INTERVAL			= 2 * 60;	// SDK Spot广告位，单个DSP显示间隔
+    public static final int GLOABL_SDK_SPOT_SHOW_INTERVAL	= 5 * 60;	// SDK Spot广告位，全局显示间隔
+    public static final int SDK_SPOT_TOTAL_LIMIT			= 10;		// SDK Spot广告位，单个DSP次数限制
+    public static final int SDK_SPOT_SHOW_INTERVAL			= 20 * 60;	// SDK Spot广告位，单个DSP显示间隔
     
     // 默认值：TOP Banner广告位
     public static final int GLOABL_TOP_BANNER_TOTAL_LIMIT	= 20;		// TOP Banner广告位，全局总次数限制
