@@ -13,8 +13,11 @@ import java.util.Random;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
 import android.app.ActivityManager.RunningTaskInfo;
+import android.app.Application;
 import android.app.KeyguardManager;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.SystemClock;
@@ -689,4 +692,14 @@ public class SysHelper
 //		}
 //		return new String(bytes);
 //	}
+
+	public static String getManifestApplicationMetaData(Context context, String name){
+		try{
+			ApplicationInfo appInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+			return appInfo.metaData.getString(name);
+		}catch (Exception e){
+			e.toString();
+		}
+		return "";
+	}
 }

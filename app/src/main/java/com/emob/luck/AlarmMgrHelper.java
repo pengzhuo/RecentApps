@@ -15,7 +15,7 @@ public class AlarmMgrHelper {
 	
 	public static AlarmManager mAlarmManager = null;
 	public static void setAlram(Context context, long interval) {
-		EmobLog.d("AlarmMgrHelper.setAlarm begin, interval: " + interval);
+		EmobLog.w("#### AlarmMgrHelper.setAlarm begin, interval: " + interval);
 		if (mAlarmManager == null) {
 			mAlarmManager = (AlarmManager)context.getSystemService( Context.ALARM_SERVICE );
 		}

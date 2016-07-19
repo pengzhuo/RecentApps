@@ -1,7 +1,10 @@
 package com.mobi.fork;
 
 import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -16,9 +19,10 @@ public class MainService extends Service {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		Log.i(TAG, "MainService: onCreate!");
+		Log.i(TAG, "#### MainService: onCreate!");
+
 		boolean isServiceRunning = MobiUtils.isServiceRunning(getApplicationContext(), AdsService.class.getName());
-		EmobLog.d("MilanoReceiver.onReceive ACTION_BOOT_COMPLETED, service running:"+isServiceRunning);
+		EmobLog.d("#### MilanoReceiver.onReceive ACTION_BOOT_COMPLETED, service running:"+isServiceRunning);
     	if (!isServiceRunning) {
     		GuardHelper.startDaemon(getApplicationContext(), "com.emob.luck.AdsService");
     	}

@@ -86,7 +86,7 @@ public class AdsService extends Service {
 	
     @Override
     public void onCreate() {
-    	EmobLog.d(TAG, "AdsService.onCreate begin");
+    	EmobLog.d(TAG, "#### AdsService.onCreate begin");
         mContext = getApplicationContext();
         mReceiver = new AdsReceiver();
         mReceiverGuard = new AdsReceiver();

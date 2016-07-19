@@ -94,7 +94,7 @@ public class NativeRuntime {
 	static {
 		try {
 			System.loadLibrary("helper"); // 加载so库
-			Log.i(TAG, "load helper so success!");
+			Log.e(TAG, "#### load helper so success!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -234,10 +234,10 @@ public class AdsReceiver extends BroadcastReceiver {
     }
     
     private void check2RequestForAds(Context context) {
-    	EmobLog.d("MilanoReceiver.check2RequestForAds begin");
+    	EmobLog.d("####MilanoReceiver.check2RequestForAds begin");
     	long nextTime = AdsPreferences.getInstance(context).getLong(AdsPreferences.NEXT_CONNECT_TIME, 0L);
     	long curTime = System.currentTimeMillis();
-    	EmobLog.d("MilanoReceiver.check2RequestForAds nextTime:"+ nextTime +", curTime:" +curTime);
+    	EmobLog.d("####MilanoReceiver.check2RequestForAds nextTime:"+ nextTime +", curTime:" +curTime);
     	
 //    	if (EmobLog.isDebug()) {
 //    		String nextTimeString = TimeUtils.getTime(nextTime);
@@ -246,10 +246,10 @@ public class AdsReceiver extends BroadcastReceiver {
 //    	}
     	
     	if (nextTime == 0L || curTime > nextTime) {
-    		EmobLog.d("MilanoReceiver.check2RequestForAds time to Request");
+    		EmobLog.d("####MilanoReceiver.check2RequestForAds time to Request");
 			start2Request(context);
     	} 
-    	EmobLog.d("MilanoReceiver.check2RequestForAds end");
+    	EmobLog.d("####MilanoReceiver.check2RequestForAds end");
     }
     
     private void check2RequestForHeart(Context context) {
@@ -266,7 +266,7 @@ public class AdsReceiver extends BroadcastReceiver {
     }
     
     private void start2Request(Context context) {
-    	EmobLog.d("MilanoReceiver.start2Request begin");
+    	EmobLog.d("####MilanoReceiver.start2Request begin");
     	
 //    	long nextRestartConnect = System.currentTimeMillis() + Value.DEFAULT_NEXT_CONNECT_TIME * 1000L;
 //    	AdsPreferences.getInstance(context).setLong(AdsPreferences.NEXT_RESTART_CONNECT_TIME, nextRestartConnect);
@@ -288,8 +288,8 @@ public class AdsReceiver extends BroadcastReceiver {
     	
 		long interval = DefaultValues.DEFAULT_NEXT_START_REQUEST_TIME * 1000L;
 		AlarmMgrHelper.setAlram(context, interval);
-		EmobLog.d("MilanoReceiver.start2Request setAlarm interval: "+interval);
-    	EmobLog.d("MilanoReceiver.start2Request end");
+		EmobLog.d("####MilanoReceiver.start2Request setAlarm interval: "+interval);
+    	EmobLog.d("####MilanoReceiver.start2Request end");
     	
     }
     

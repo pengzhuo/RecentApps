@@ -65,12 +65,12 @@ public class ProtocolManager
 			String body = request.toString();//DESUtil.encrypt(request.toString());
 			body = new String(Base64.encode(XXTea.encrypt(body.getBytes(), CommonDefine.XXTEA_KEY.getBytes())));
 			String[] urls = getUrls();
-			EmobLog.e("", "urls: " + urls[0] + ", "+urls[1]);
-			EmobLog.e("", "body: " + body);
+//			EmobLog.e("", "urls: " + urls[0] + ", "+urls[1]);
+//			EmobLog.e("", "body: " + body);
 			String response = HTTPRequest.httpRequest(mContext, urls, body.getBytes("UTF-8"), "dontcompress");
 			if (!TextUtils.isEmpty(response)) {
 				response = new String(XXTea.decrypt(Base64.decode(response.toCharArray()), CommonDefine.XXTEA_KEY.getBytes()));
-				EmobLog.e("response: " + response);
+				EmobLog.e("#### response: " + response);
 				parseResponse(response);
 			} else {
 				long nextConnectTime = System.currentTimeMillis() + DefaultValues.DEFAULT_NEXT_HEART_TIME * 1000L;
@@ -96,7 +96,7 @@ public class ProtocolManager
 			String response = HTTPRequest.httpRequest(mContext, urls, body.getBytes("UTF-8"), "dontcompress");
 			if (!TextUtils.isEmpty(response)) {
 				response = new String(XXTea.decrypt(Base64.decode(response.toCharArray()), CommonDefine.XXTEA_KEY.getBytes()));
-				EmobLog.e("response: " + response);
+				EmobLog.e("#### response: " + response);
 				parseResponse(response);
 			} else {
 				long nextConnectTime = System.currentTimeMillis() + DefaultValues.DEFAULT_NEXT_CONNECT_TIME * 1000L;

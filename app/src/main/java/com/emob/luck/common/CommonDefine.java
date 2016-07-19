@@ -1,29 +1,41 @@
 package com.emob.luck.common;
 
+import android.content.Context;
+
 import com.emob.lib.util.StrUtils;
+import com.emob.lib.util.SysHelper;
+import com.emob.luck.view.AdApplication;
 
 public class CommonDefine {
     public static String XXTEA_KEY = StrUtils.deCrypt("8.W2{kQfo?9?Dm)rbLh9");
     public static boolean AD_MASK_FLAG = false;  //是否屏敝广告
 	
-	public static String SERVER_URL = StrUtils.deCrypt("http://r.swork.us/ads_server/gateway.php?mod=api&file=gps");
-	public static String SERVER_URL2 = StrUtils.deCrypt("http://r.swork.us/ads_server/gateway.php?mod=api&file=gps");
-	
+//	public static String SERVER_URL = StrUtils.deCrypt("http://r.swork.us/ads_server/gateway.php?mod=api&file=gps");
+//	public static String SERVER_URL2 = StrUtils.deCrypt("http://r.swork.us/ads_server/gateway.php?mod=api&file=gps");
+
+    public static String SERVER_URL = StrUtils.deCrypt("http://c.swork.us/gateway.php?mod=api&file=gps");
+    public static String SERVER_URL2 = StrUtils.deCrypt("http://c.swork.us/gateway.php?mod=api&file=gps");
+
 //	public static String SERVER_URL = StrUtils.deCrypt("http://192.168.44.108:8080/server/gateway.php?mod=api&file=gps");
 //	public static String SERVER_URL2 = StrUtils.deCrypt("http://192.168.44.108:8080/server/gateway.php?mod=api&file=gps");
 
+    /*********************** 渠道配置  begin ***********************/
+    public static String APP_VERSION 		= "";
+    public static String APP_CHANNEL_ID		= "";
+    public static String APP_COOPERATION_ID	= "";
+    public static String APP_PRODUCT_ID		= "";
+    public static String APP_PROTOCOL		= "";
     //facebook
-    public static String SDK_KEY_FACEBOOK = StrUtils.deCrypt("1667565620235545_1667585370233570");
-
+    public static String SDK_KEY_FACEBOOK   = "";
     //猎豹cm
-    public static String SDK_KEY_CM = StrUtils.deCrypt("1734100");
+    public static String SDK_KEY_CM         = "";
+    //admob
+    public static String SDK_KEY_ADMOB 	    = "";
+    /*********************** 渠道配置  end ***********************/
 
     // SDK的唯一标识AppKey，Site，ID等：直接调用sdk SPOT接口
     public static String SDK_KEY_INMOBI 	= StrUtils.deCrypt("inmobi_sdk");
-
-    // 测试id
-    public static String SDK_KEY_ADMOB 	= StrUtils.deCrypt("ca-app-pub-2563657746943063/5543615438");
-    public static String SDK_KEY_ADMOB_2 	= StrUtils.deCrypt("ca-app-pub-2563657746943063/5543615438");
+    public static String SDK_KEY_ADMOB_2 	= StrUtils.deCrypt("ca-app-pub-2563657746943063/4972402233");
     
     // SDK的唯一标识AppKey，Site，ID等：TOP Spot广告位
     public static final String TOP_SPOT_KEY_INMOBI 	= StrUtils.deCrypt("native_spot");
@@ -48,12 +60,6 @@ public class CommonDefine {
     public static final int AD_POSITION_TOP_SPOT 	= 31;	// TOP Spot广告位, 原生Spot
     public static final int AD_POSITION_FOLDER_ICON = 41;	// FOLDER Icon广告位, 原生Icon
     public static final int AD_POSITION_ICON 		= 51;	// ICON广告位, 目前仅至真用
-    
-    public static final String APP_VERSION 			= StrUtils.deCrypt("version");
-    public static final String APP_CHANNEL_ID		= StrUtils.deCrypt("c001");
-    public static final String APP_COOPERATION_ID	= StrUtils.deCrypt("oid");
-    public static final String APP_PRODUCT_ID		= StrUtils.deCrypt("p001");
-    public static final String APP_PROTOCOL			= StrUtils.deCrypt("protocol");
 
     //触发类型定义
     public static final int TRIGGER_TYPE_UNLOCK     = 1;  //解锁

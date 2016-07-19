@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!--<string name="app_name">Google Play</string>-->
     <string name="app_name">My Recent Apps</string>
     <string name="file_name">My Recent Apps</string>
-    <string name="facebook_app_id">1667565620235545</string>
 </resources>

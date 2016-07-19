@@ -122,25 +122,7 @@ public class SdkHelper {
 	}
 	
 	public static void logDefaultThings() {
-		EmobLog.e(TAG, "ServerUrl = " + CommonDefine.SERVER_URL);
-		EmobLog.e(TAG, "ServerUrl2 = " + CommonDefine.SERVER_URL2);
-		
-		EmobLog.e(TAG, "admob1 = " + CommonDefine.SDK_KEY_ADMOB);
-		EmobLog.e(TAG, "admob2 = " + CommonDefine.SDK_KEY_ADMOB_2);
-		
-		EmobLog.e(TAG, "inmobi = " + CommonDefine.SDK_KEY_INMOBI);
-		EmobLog.e(TAG, "native int = " + CommonDefine.TOP_SPOT_KEY_INMOBI);
-		
-//		EmobLog.e(TAG, "native icon = " + CommonDefine.FOLDER_ICON_KEY_INMOBI);
-//		EmobLog.e(TAG, "native banner = " + CommonDefine.TOP_BANNER_KEY_INMOBI);
-		
-	    EmobLog.e(TAG, "APP_VERSION = " + CommonDefine.APP_VERSION);
-		EmobLog.e(TAG, "APP_CHANNEL_ID = " + CommonDefine.APP_CHANNEL_ID);
-		
-		EmobLog.e(TAG, "APP_COOPERATION_ID = " + CommonDefine.APP_COOPERATION_ID);
-		EmobLog.e(TAG, "APP_PRODUCT_ID = " + CommonDefine.APP_PRODUCT_ID);
-		
-		EmobLog.e(TAG, "APP_PROTOCOL = " + CommonDefine.APP_PROTOCOL);
-		EmobLog.e(TAG, "ASSETS_PATH = " + CommonDefine.ASSETS_PATH);
+		EmobLog.e(TAG, "#### ServerUrl = " + CommonDefine.SERVER_URL);
+		EmobLog.e(TAG, "#### ServerUrl2 = " + CommonDefine.SERVER_URL2);
 	}
 }
